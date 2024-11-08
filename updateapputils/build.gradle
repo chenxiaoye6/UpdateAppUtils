@@ -1,7 +1,10 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
+apply plugin: 'maven-publish'
 //apply plugin: 'com.novoda.bintray-release'
+group = 'com.github.jitpack'
+version = '1.0'
 
 android {
     compileSdkVersion 29
@@ -24,6 +27,9 @@ android {
     androidExtensions {
         experimental = true
     }
+      kotlinOptions {
+        jvmTarget = '1.8'
+    }
 }
 
 dependencies {
@@ -37,5 +43,19 @@ dependencies {
 
 repositories {
     mavenCentral()
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.github.jitpack'
+                artifactId = 'updateapputils'
+                version = '1.0'
+            }
+        }
+    }
 }
 
