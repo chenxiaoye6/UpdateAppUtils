@@ -4,7 +4,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'maven-publish'
 //apply plugin: 'com.novoda.bintray-release'
 group = 'com.github.jitpack'
-version = '1.0'
+version = '1.0.7'
 
 android {
     compileSdkVersion 29
@@ -53,7 +53,7 @@ afterEvaluate {
                 from components.release
                 groupId = 'com.github.jitpack'
                 artifactId = 'updateapputils'
-                version = '1.0'
+                version = '1.0.7'
             }
         }
     }
